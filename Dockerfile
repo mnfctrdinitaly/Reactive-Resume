@@ -13,6 +13,7 @@ WORKDIR /app
 FROM base AS build
 
 ENV NX_CLOUD_ACCESS_TOKEN=$NX_CLOUD_ACCESS_TOKEN
+ENV VITE_DISABLE_SIGNUPS="true"
 
 COPY .npmrc package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
